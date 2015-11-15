@@ -1,0 +1,57 @@
+﻿<!DOCTYPE html>
+<html id="ng-app" ng-app="acuteSelectTest">
+<head>
+    <title></title>
+
+    <script type="text/javascript" src="bower_components/jquery/dist/jquery.js"></script>
+    <script type="text/javascript" src="../bower_components/angular/angular.js"></script>
+    <script type="text/javascript" src="../acute.select/acute.select.js"></script>
+    <script type="text/javascript" src="../acute.select/acute.dropdown.fix.js"></script>
+    <link rel="stylesheet" href="../acute.select/acute.select.css"/>
+    <script type="text/javascript" src="../test-pages/TestAcuteSelect.js"></script>
+
+    <!-- Bootstrap CSS and js -->
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap-theme.min.css">
+    <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+
+</head>
+<body>
+    <div ng-controller="MainCtrl">
+        <nav class="navbar navbar-default navbar-fixed-top action-bar">
+            <div class="container-fluid">
+                <ul class="nav nav-pills">
+                    <li class="dropdown">
+                        <a href=""
+                            data-toggle="dropdown"
+                            data-ng-click="focusstatus = !focusstatus"
+                            data-ng-class="{'filter-unselected': !filters.Status}">
+                            Status <span class="caret"></span></a>
+                        <ul class="dropdown-menu keep-open">
+                            <li>
+                                <select class="ac-select"
+                                        ac-model="filters.selectedColour"
+                                        ac-options="colour.shade as colour.name for colour in colours"
+                                        ac-data="colours"
+                                        ac-focus-when="focusstatus"
+                                        ac-settings="{minWidth: '350px'}"
+                                        ac-change="loadSection()">
+                                </select>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href=""
+                            data-ng-click="clearFilters(); loadSection()">
+                            Clear
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+        <div style="margin-top: 100px;">Selected shade: {{filters.selectedColour}}</div>
+        <div>{{message}}</div>
+    </div>
+</body>
+</html>
