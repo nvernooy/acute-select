@@ -3,13 +3,17 @@
 **acute-select** is a dropdown select component for [AngularJS](http://angularjs.org/), with no external dependencies other than Angular itself.
 This is a fork of the original [acute-select](http://john-oc.github.io/).
 
-## Features:- ##
+## Features: ##
 
-- **Limited features of the original acute-select**
+**Limited features of the original acute-select at http://john-oc.github.io/**
+ - Tailored for use in a Bootstrap navbar
+ - Clean, working dropdown
+ - Searchbox
+ - List options similar to select directive
 
-### Example:- ###
+### Example: ###
 
-An example is in index.html.
+See the [demo-page](http://nvernooy.github.io/acute-select/).
 
 
 ## Documentation ##
