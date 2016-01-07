@@ -5,7 +5,7 @@ This is a fork of the original [acute-select](http://john-oc.github.io/).
 
 ## Features: ##
 
-**Limited features of the original acute-select at http://john-oc.github.io/**
+**Limited features of the original acute-select at https://github.com/john-oc/acute-select**
  - Tailored for use in a Bootstrap navbar
  - Clean, working dropdown
  - Searchbox
