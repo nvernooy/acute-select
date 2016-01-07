@@ -1,19 +1,20 @@
 ﻿<!DOCTYPE html>
 <html id="ng-app" ng-app="acuteSelectTest">
 <head>
-    <title></title>
+    <title>Acute Bootstrap Select</title>
 
-    <script type="text/javascript" src="bower_components/jquery/dist/jquery.js"></script>
-    <script type="text/javascript" src="../bower_components/angular/angular.js"></script>
-    <script type="text/javascript" src="../acute.select/acute.select.js"></script>
-    <script type="text/javascript" src="../acute.select/acute.dropdown.fix.js"></script>
-    <link rel="stylesheet" href="../acute.select/acute.select.css"/>
-    <script type="text/javascript" src="../test-pages/TestAcuteSelect.js"></script>
-
-    <!-- Bootstrap CSS and js -->
-    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap-theme.min.css">
-    <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <!-- jquery and angular -->
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.js"></script>
+    <!-- bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <!-- acute-select -->
+    <script type="text/javascript" src="../acute-select/acute.select/acute.select.js"></script>
+    <script type="text/javascript" src="../acute-select/acute.select/acute.dropdown.fix.js"></script>
+    <link rel="stylesheet" href="../acute-select/acute.select/acute.select.css"/>
+    <script type="text/javascript" src="../acute-select/app.js"></script>
 
 </head>
 <body>
@@ -33,7 +34,7 @@
                                 <li>
                                     <select class="ac-select"
                                             ac-model="filters.selectedColour"
-                                            ac-options="colour.shade as colour.name for colour in colours"
+                                            ac-options="colour as colour.name for colour in colours"
                                             ac-data="colours"
                                             ac-placeholder="{{dropdownItems}}"
                                             ac-focus-when="focusstatus"
@@ -54,8 +55,8 @@
             </nav>
 
             <div class="alert alert-info">
-                <p>Selected shade: {{filters.selectedColour}}</p>
                 <p>{{message}}</p>
+                <p>Selected shade: {{filters.selectedColour.shade}}</p>
             </div>
           </div>
         </div>

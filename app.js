@@ -1,10 +1,7 @@
-﻿/// <reference path="../lib/angular.1.2.6.js" />
-
-"use strict";
+﻿"use strict";
 
 angular.module("acuteSelectTest", ["acute.select"])
 .controller("MainCtrl", function ($scope, $http, $filter, $window, $timeout, safeApply) {
-
     $scope.colours = [
       { name: 'Black', shade: 'dark' },
       { name: 'White', shade: 'light' },
@@ -21,16 +18,9 @@ angular.module("acuteSelectTest", ["acute.select"])
     $scope.dropdownItems = "Colours"
 
     $scope.loadSection = function () {
-      var colourName = 'none';
-        if ($scope.filters.selectedColour){
-          for (var i in $scope.colours){
-            if ($scope.filters.selectedColour === $scope.colours[i].shade){
-              colourName = $scope.colours[i].name;
-              break;
-            }
-          }
-        }
-        $scope.message = "ac-change event fired for colour. New colour is " + colourName;
+        var colourName = $scope.filters.selectedColour ?
+                            $scope.filters.selectedColour.name : 'none';
+        $scope.message = "Change event fired for colour. New colour is " + colourName;
     }
 
     $scope.clearFilters = function(){
