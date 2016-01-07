@@ -5,14 +5,12 @@
 angular.module("acuteSelectTest", ["acute.select"])
 .controller("MainCtrl", function ($scope, $http, $filter, $window, $timeout, safeApply) {
 
-    $scope.textItems = ['Square', 'Circle', 'Triangle', 'Pentagon', 'Hexagon'];
-
     $scope.colours = [
-      { name: 'black', shade: 'dark' },
-      { name: 'white', shade: 'light' },
-      { name: 'red', shade: 'dark' },
-      { name: 'blue', shade: 'dark' },
-      { name: 'yellow', shade: 'light' }
+      { name: 'Black', shade: 'dark' },
+      { name: 'White', shade: 'light' },
+      { name: 'Red', shade: 'dark' },
+      { name: 'Blue', shade: 'dark' },
+      { name: 'Yellow', shade: 'light' }
     ];
 
     $scope.things = [];
@@ -20,12 +18,19 @@ angular.module("acuteSelectTest", ["acute.select"])
     $scope.serverItems = [];
 
     $scope.message = "Ready.";
-
-    $scope.selectedColour = $scope.colours[2]; // red.
+    $scope.dropdownItems = "Colours"
 
     $scope.loadSection = function () {
-        var colourName = $scope.filters.selectedColour ? $scope.filters.selectedColour : "none";
-        $scope.message = "ac-change event fired for colour. New colour: " + colourName;
+      var colourName = 'none';
+        if ($scope.filters.selectedColour){
+          for (var i in $scope.colours){
+            if ($scope.filters.selectedColour === $scope.colours[i].shade){
+              colourName = $scope.colours[i].name;
+              break;
+            }
+          }
+        }
+        $scope.message = "ac-change event fired for colour. New colour is " + colourName;
     }
 
     $scope.clearFilters = function(){

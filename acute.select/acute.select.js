@@ -25,6 +25,7 @@ angular.module("acute.select", [])
         scope: {
             "acSettings": "@",
             "acOptions": "@",
+            "acPlaceholder": "@",
             "model": "=acModel",
             "acChange": "&",
             "keyField": "@acKey",
@@ -296,8 +297,9 @@ angular.module("acute.select", [])
                 if ($scope.comboText == '') {
                     $scope.clearSelection();
                 }
-
-                $scope.filterData();
+                else{
+                    $scope.filterData();
+                }
             };
 
             $scope.itemClick = function(i) {
@@ -360,6 +362,7 @@ angular.module("acute.select", [])
                 $scope.initialSelection = null;
                 $scope.scrollTo = 0;
                 $scope.comboText = "";
+                $scope.filterData();
 
                 if (oldConfirmedItem !== null) {
                     fireChangeEvent();

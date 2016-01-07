@@ -18,40 +18,47 @@
 </head>
 <body>
     <div ng-controller="MainCtrl">
-        <nav class="navbar navbar-default navbar-fixed-top action-bar">
-            <div class="container-fluid">
-                <ul class="nav nav-pills">
-                    <li class="dropdown">
-                        <a href=""
-                            data-toggle="dropdown"
-                            data-ng-click="focusstatus = !focusstatus"
-                            data-ng-class="{'filter-unselected': !filters.Status}">
-                            Status <span class="caret"></span></a>
-                        <ul class="dropdown-menu keep-open">
-                            <li>
-                                <select class="ac-select"
-                                        ac-model="filters.selectedColour"
-                                        ac-options="colour.shade as colour.name for colour in colours"
-                                        ac-data="colours"
-                                        ac-focus-when="focusstatus"
-                                        ac-settings="{minWidth: '350px'}"
-                                        ac-change="loadSection()">
-                                </select>
-                            </li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href=""
-                            data-ng-click="clearFilters(); loadSection()">
-                            Clear
-                        </a>
-                    </li>
-                </ul>
-            </div>
-        </nav>
+        <div class="row">
+          <div class="col-md-6 col-md-push-3">
+            <nav class="navbar navbar-default">
+                <div class="container-fluid">
+                    <ul class="nav nav-pills">
+                        <li class="dropdown navbar-text">
+                            <a href=""
+                                data-toggle="dropdown"
+                                data-ng-click="focusstatus = !focusstatus"
+                                data-ng-class="{'filter-unselected': !filters.Status}">
+                                {{dropdownItems}} <span class="caret"></span></a>
+                            <ul class="dropdown-menu keep-open">
+                                <li>
+                                    <select class="ac-select"
+                                            ac-model="filters.selectedColour"
+                                            ac-options="colour.shade as colour.name for colour in colours"
+                                            ac-data="colours"
+                                            ac-placeholder="{{dropdownItems}}"
+                                            ac-focus-when="focusstatus"
+                                            ac-settings="{minWidth: '350px'}"
+                                            ac-change="loadSection()">
+                                    </select>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="navbar-text">
+                            <a href=""
+                                data-ng-click="clearFilters(); loadSection()">
+                                Clear
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
 
-        <div style="margin-top: 100px;">Selected shade: {{filters.selectedColour}}</div>
-        <div>{{message}}</div>
+            <div class="alert alert-info">
+                <p>Selected shade: {{filters.selectedColour}}</p>
+                <p>{{message}}</p>
+            </div>
+          </div>
+        </div>
     </div>
 </body>
 </html>
